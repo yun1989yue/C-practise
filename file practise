@@ -1,4 +1,7 @@
 # C-practise
+
+/* example 1 */
+/* Compile a tiny program to read content from a test file */
 #include <stdio.h>
 #include <string.h>
 
@@ -9,7 +12,12 @@ int main()
     
     memset(content, 0, 256);
     
-    fp = fopen("./file_for_test", 'r');
+    fp = fopen("./file_for_test", "r");
     fread(content, 1, 256, fp);
-    printf("The content in the file is %s\n", content);
+    printf("The content in the file is %s", content);
 }
+/*  Warning 
+    1) for function fopen, "r" is used rather than 'r', otherwise an error will be led for point to a integer rather than pointer without a cast
+    2) no need to add \n at the end of print, the content read from the test file contains one already 
+*/
+    
