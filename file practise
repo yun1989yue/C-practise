@@ -1,0 +1,15 @@
+# C-practise
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    FILE *fp;
+    char content[256];
+    
+    memset(content, 0, 256);
+    
+    fp = fopen("./file_for_test", 'r');
+    fread(content, 1, 256, fp);
+    printf("The content in the file is %s\n", content);
+}
