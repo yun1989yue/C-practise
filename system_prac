@@ -1,0 +1,24 @@
+/*  example 1 
+    write a simple code to issue a command to system, and read the echo
+*/
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char cmd1[256];
+    char cmd2[256];
+    char echo[256];
+    FILE *fp;
+    
+    memset(cmd1, 0, 256);
+    memset(cmd2, 0, 256);
+    memset(echo, 0, 256);
+    
+    sprintf(cmd1, "date -s 2012-08-02");
+    sprintf(cmd2, "date");
+    system(cmd1);
+    fp = popen(cmd2, "r");
+    fread(echo, 1, 256, fp);
+    printf("The current date is %s", echo);
+}
